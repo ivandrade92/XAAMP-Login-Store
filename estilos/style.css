@@ -1,0 +1,32 @@
+
+.menu {
+  background: rgb(124, 163, 235);
+}
+
+.pie {
+  margin: 10px;
+  padding: 10px;
+  background-color: rgb(109, 103, 103);
+}
+.content {
+  background-color: rgb(109, 103, 103);
+  color: white;
+  padding: 10px;
+  margin: 10px;
+  width: 80%;
+}
+.titulo {
+  font-family: "Courier New", Courier, monospace;
+  background-color: rgb(109, 103, 103);
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+.color-button {
+  background-color: rgb(255, 0, 0);
+  --bs-body-bg: rgb(255, 0, 0);
+  color: white;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
