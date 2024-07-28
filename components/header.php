@@ -1,5 +1,5 @@
 <?php
-include 'database/conexion.php';
+include 'config/conexion.php';
 session_start();
 ?>
 <nav class="navbar menu">
@@ -16,6 +16,7 @@ session_start();
         echo "<a class='btn btn-dark btn-sm' href='login.php'>Iniciar Sesión</a>";
       }
       ?>
+      <a class="btn btn-primary btn-sm" href="components/store/cart.php">Carrito</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>Menú

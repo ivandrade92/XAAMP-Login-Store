@@ -17,17 +17,18 @@
     <div id="content" class="d-flex col-12 m-2 p-2 justify-content-center ">
         <div class="row text-center col-6 justify-content-center">
             <?php
-            include 'database/conexion.php';
+            include 'config/conexion.php';
             if (isset($_SESSION['email'])) {
                 echo "<h1 class='text-center'>Bienvenido $_SESSION[nombre]</h1>";
+                echo "<h2 class='text-center'>Tu correo es: $_SESSION[email]</h2>";
             } else {
                 echo "<script>alert('Inicia sesión para acceder a tu perfil');</script>";
                 echo "<script>window.location.href = 'login.php';</script>";
                 exit();
             }
             ?>
-            <form action='database/cerrarconexion.php'>
-                <input type="submit" name="sesionDestroy" value="Cerrar sesion" />
+            <form action='config/cerrarconexion.php'>
+                <input class="btn btn-warning" type="submit" name="sesionDestroy" value="Cerrar sesion" />
             </form>
         </div>
     </div>
