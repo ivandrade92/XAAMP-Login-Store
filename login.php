@@ -16,7 +16,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
     <?php
-    include 'database/conexion.php';
+    include 'config/conexion.php';
     ?>
     <div id="content" class="d-flex col-12 m-2 p-2 justify-content-center">
         <div class="card" style="width: 18rem;">
