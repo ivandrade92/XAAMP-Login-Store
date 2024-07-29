@@ -1,4 +1,4 @@
-
+ <link rel="stylesheet" href="estilos/style.css" />
 <?php
 include 'config/conexion.php';
 session_start();
@@ -33,7 +33,7 @@ session_start();
               <a class="nav-link active" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contacto.html">Contacto</a>
+              <a class="nav-link" href="contacto.php  ">Contacto</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="productos.php">Productos</a>

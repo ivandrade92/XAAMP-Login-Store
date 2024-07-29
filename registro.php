@@ -19,7 +19,7 @@
     <?php
     include 'config/conexion.php';
     ?>
-    <div id="content" class="d-flex col-12 m-2 p-2 justify-content-center align-items-center">
+    <div id="content" class="d-flex col-12 my-2 p-2 justify-content-center align-items-center">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <form name="register" id="register" class="container-fluid col-12 d-grid gap-3" method="post">
