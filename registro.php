@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8" />
-    <title>CLOUDMEX</title>
+    <title>Registro</title>
     <link rel="stylesheet" href="estilos/style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
@@ -19,7 +19,7 @@
     <?php
     include 'config/conexion.php';
     ?>
-    <div id="content" class="d-flex col-12 m-2 p-2 justify-content-center align-items-center">
+    <div id="content" class="d-flex col-12 my-2 p-2 justify-content-center align-items-center">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <form name="register" id="register" class="container-fluid col-12 d-grid gap-3" method="post">

@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8" />
-    <title>CLOUDMEX</title>
+    <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="estilos/style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
@@ -18,7 +18,7 @@
     <?php
     include 'config/conexion.php';
     ?>
-    <div id="content" class="d-flex col-12 m-2 p-2 justify-content-center">
+    <div id="content" class="d-flex col-12 my-2 p-2 justify-content-center">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <form name="login" id="login" class="container-fluid col-12" method="post">
