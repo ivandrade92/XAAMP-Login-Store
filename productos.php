@@ -24,63 +24,51 @@ include 'config/conexion.php';
             </div>
             <div class="col-12">
                 <form action="productos.php" method="post">
-                    <div class="form-group">
+                    <div class="form-group col-8 d-grid gap-3 ">
                         <label for="search">Buscar producto</label>
                         <input type="text" class="form-control" id="search" name="search" placeholder="Buscar producto">
                     </div>
+                    <br>
                     <button type="submit" class="btn btn-primary">Buscar</button>
-                    <?php
-                    if (isset($_POST['search'])) {
-                        $search = $_POST['search'];
-                        $query = "SELECT * FROM productos WHERE shortname LIKE '%$search%' OR descripcion LIKE '%$search%' OR precio LIKE '%$search%' ";
-                        $result = mysqli_query($connection, $query);
-                        while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body text-center">
-                                    <img src="assets/images/productos/iconos/<?php echo $row['urlimage']; ?> " class="card-img-top" alt="..." style="width: 80px;">
-                                    <h5 class="card-title"><?php echo $row['shortname']; ?></h5>
-                                    <p class="card-text"><?php echo $row['descripcion']; ?></p>
-                                    <p class="card-text">$<?php echo $row['precio']; ?></p>
-                                </div>
-                            </div>
-                    <?php
-                        }
-                    }else{
-                        $query = "SELECT * FROM productos";
-                        $result = mysqli_query($connection, $query);
-                        while ($row = mysqli_fetch_array($result)) {
-                    ?><div class="card" style="width: 18rem;">
-                            <div class="card-body text-center">
-                                <img src="assets/images/productos/iconos/<?php echo $row['urlimage']; ?> " class="card-img-top" alt="..." style="width: 80px;">
-                                <h5 class="card-title
-                                "><?php echo $row['shortname']; ?></h5>
-                                <p class="card-text"><?php echo $row['descripcion']; ?></p>
-                                <p class="card-text">$<?php echo $row['precio']; ?></p>
-                            </div>
-                        </div>
-                    <?php
-                        }
-                    }
-                    ?>
-                </form>
             </div>
-            <!-- <?php
-            $query = "SELECT * FROM productos";
-            $result = mysqli_query($connection, $query);
-            while ($row = mysqli_fetch_array($result)) {
-            ?><div class="card" style="width: 18rem;">
-                    <div class="card-body text-center">
-                        <img src="assets/images/productos/iconos/<?php echo $row['urlimage']; ?> " class="card-img-top" alt="..." style="width: 80px;">
-                        <h5 class="card-title"><?php echo $row['shortname']; ?></h5>
-                        <p class="card-text"><?php echo $row['descripcion']; ?></p>
-                        <p class="card-text">$<?php echo $row['precio']; ?></p>
-                    </div>
-                </div>
             <?php
+            if (isset($_POST['search'])) {
+                $search = $_POST['search'];
+                $query = "SELECT * FROM productos WHERE shortname LIKE '%$search%' OR descripcion LIKE '%$search%' OR precio LIKE '%$search%' ";
+                $result = mysqli_query($connection, $query);
+                while ($row = mysqli_fetch_array($result)) {
+            ?>
+                    <div class="card m-1" style="width: 18rem;">
+                        <div class="card-body text-center">
+                            <img src="assets/images/productos/iconos/<?php echo $row['urlimage']; ?> " class="card-img-top" alt="..." style="width: 80px;">
+                            <h5 class="card-title"><?php echo $row['shortname']; ?></h5>
+                            <p class="card-text"><?php echo $row['descripcion']; ?></p>
+                            <p class="card-text">$<?php echo $row['precio']; ?></p>
+                        </div>
+                    </div>
+                <?php
+                }
+            } else {
+                $query = "SELECT * FROM productos";
+                $result = mysqli_query($connection, $query);
+                while ($row = mysqli_fetch_array($result)) {
+                ?><div class="card" style="width: 18rem;">
+                        <div class="card-body text-center">
+                            <img src="assets/images/productos/iconos/<?php echo $row['urlimage']; ?> " class="card-img-top" alt="..." style="width: 80px;">
+                            <h5 class="card-title
+                                "><?php echo $row['shortname']; ?></h5>
+                            <p class="card-text"><?php echo $row['descripcion']; ?></p>
+                            <p class="card-text">$<?php echo $row['precio']; ?></p>
+                        </div>
+                    </div>
+            <?php
+                }
             }
-            ?> -->
+            ?>
+            </form>
         </div>
+
+    </div>
 </body>
 <footer>
     <?php include 'components/footer.php'; ?>
