@@ -46,7 +46,7 @@ include 'config/conexion.php';
                                 $total += $row2['precio'] * $row['cantidad'];
                         ?>
                                 <tr>
-                                    <td><?php echo $row2['shortname']; ?></td>
+                                    <td><?php echo $row2['nombreproducto']; ?></td>
                                     <td>$<?php echo $row2['precio']; ?></td>
                                     <td><?php echo $row['cantidad']; ?></td>
                                     <td>$<?php echo $row2['precio'] * $row['cantidad']; ?></td>

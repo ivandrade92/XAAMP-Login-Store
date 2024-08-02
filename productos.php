@@ -41,7 +41,7 @@ include 'config/conexion.php';
                     <div class="card m-1" style="width: 18rem;">
                         <div class="card-body text-center">
                             <img src="assets/images/productos/iconos/<?php echo $row['urlimage']; ?> " class="card-img-top" alt="..." style="width: 80px;">
-                            <h5 class="card-title"><?php echo $row['shortname']; ?></h5>
+                            <h5 class="card-title"><?php echo $row['nombreproducto']; ?></h5>
                             <p class="card-text"><?php echo $row['descripcion']; ?></p>
                             <p class="card-text">$<?php echo $row['precio']; ?></p>
                             <?php
