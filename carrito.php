@@ -59,7 +59,7 @@ include 'config/conexion.php';
                 </table>
                 <h3 class="text-center">Total: $<?php echo $total; ?></h3>
                 <div class="d-grid gap-2">
-                    <a href="checkout.php" class="btn btn-primary">Pagar</a>
+                    <a href="pagar.php" class="btn btn-primary">Pagar</a>
                 </div>
             </div>
         </div>
