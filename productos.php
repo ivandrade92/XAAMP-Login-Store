@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8" />
-    <title>CLOUDMEX</title>
+    <title>Servicios</title>
     <link rel="stylesheet" href="estilos/style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <script src="js/jquery-3.7.1.js"></script>
@@ -44,6 +44,17 @@ include 'config/conexion.php';
                             <h5 class="card-title"><?php echo $row['shortname']; ?></h5>
                             <p class="card-text"><?php echo $row['descripcion']; ?></p>
                             <p class="card-text">$<?php echo $row['precio']; ?></p>
+                            <?php
+                            if (isset($_SESSION['email'])) {
+                            ?>
+                                <a href="addtocart.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Agregar al carrito</a>
+                            <?php
+                            } else {
+                            ?>
+                                <a href="login.php" class="btn btn-primary">Agregar al carrito</a>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                 <?php
