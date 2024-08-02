@@ -17,7 +17,7 @@ include 'config/conexion.php';
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-    <div id="content" class="d-flex col-12 my-2 p-2 justify-content-center">
+    <div id="content" class="d-flex col-12 my-2 p-2 justify-content-center" style="font-size: 14px;">
         <div class="row">
             <div class="col-12">
                 <h1 class="text-center">Productos</h1>
@@ -52,7 +52,7 @@ include 'config/conexion.php';
                 $query = "SELECT * FROM productos";
                 $result = mysqli_query($connection, $query);
                 while ($row = mysqli_fetch_array($result)) {
-                ?><div class="card" style="width: 18rem;">
+                ?><div class="card m-1" style="width: 18rem;">
                         <div class="card-body text-center">
                             <img src="assets/images/productos/iconos/<?php echo $row['urlimage']; ?> " class="card-img-top" alt="..." style="width: 80px;">
                             <h5 class="card-title
