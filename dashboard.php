@@ -21,6 +21,7 @@
             if (isset($_SESSION['email'])) {
                 echo "<h1 class='text-center'>Bienvenido $_SESSION[nombre]</h1>";
                 echo "<h2 class='text-center'>Tu correo es: $_SESSION[email]</h2>";
+                include 'config/orders.php';
             } else {
                 echo "<script>alert('Inicia sesión para acceder a tu perfil');</script>";
                 echo "<script>window.location.href = 'login.php';</script>";

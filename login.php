@@ -55,7 +55,7 @@
                                     session_start();
                                     $_SESSION['email'] = $email;
                                     $_SESSION['nombre'] = $row['nombre'];
-                                    $_SESSION['id'] = $row['id'];
+                                    $_SESSION['id'] = $row['idcliente'];
                                     echo "<script>alert('Bienvenido');</script>";
                                     echo "<script>window.location.href = 'index.php';</script>";
                                     exit();

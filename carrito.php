@@ -26,48 +26,56 @@
                 <section name="list">
                     <?php
                     include 'config/conexion.php';
-                    $cart = "SELECT * FROM carrito";
+                    $cart = "SELECT * FROM carrito WHERE idcliente = $_SESSION[id]"; ;
                     $result = mysqli_query($connection, $cart);
                     $total = 0.00;
                     $quantity = 0;
                     $_SESSION['quantity'] = 0;
                     if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_array($result)) {
                     ?>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Image</th>
-                                        <th scope="col">Producto</th>
-                                        <th scope="col">Precio</th>
-                                        <th scope="col">Cantidad</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><img src="assets/images/productos/iconos/<?php echo $_SESSION['imgprod']; ?>"></td>
-                                        <td><?php echo $row['idproducto'] ?></td>
-                                        <td><?php echo $row['preciounitario']; ?></td>
-                                        <td><?php echo $row['cantidad']; ?></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        <?php
-                            $total += $row['preciounitario'] * $row['cantidad'];
-                            $quantity += $row['cantidad'];
-                            $_SESSION['quantity'] = $quantity;
-                        }
-                        ?>
-                        <div class="d-flex justify-content-center">
-                            <h3>Total: <?php echo $total; ?></h3>
-                        </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>image</th> 
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            while ($row = mysqli_fetch_array($result)) {
+                                $_total = 0;
+                                $_total += $row['precio'] * $row['cantidad'];
+                                $quantity += $row['cantidad'];
+                                $_SESSION['quantity'] += $row['cantidad'];
+                            ?>
+                            <tr>
+                                <td><?php echo $row['idcliente']; ?></td>
+                                <td><img src="assets/images/productos/Iconos/<?php echo $row['urlimage']; ?>" alt="imagen" width="40px"></td>
+                                <td><?php echo $row['nombreproducto']; ?></td>
+                                <td><?php echo $row['cantidad']; ?></td>
+                                <td>$<?php echo $row['precio']; ?></td>
+                                <td>$<?php echo $row['precio'] * $row['cantidad']; ?></td>
+                            </tr>
+                            <?php
+                            }
+                            ?>
+                            <tr>
+                                <td>Total</td>
+                                <td><?php echo $quantity; ?></td>
+                                <td></td>
+                                <td>$<?php echo $_total; ?></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <?php
                     } else {
-                    ?>
-                        <div class="d-flex justify-content-center">
-                            <h3>No hay productos en el carrito</h3>
-                        </div>
-                    <?php
+                        echo "<script>alert('No hay productos en el carrito');</script>";
+                        echo "<script>window.location.href = 'productos.php';</script>";
                     }
                     ?>
                 </section>
@@ -86,28 +94,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="POST">
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Nombre:</label>
-                                            <input type="text" class="form-control" id="recipient-name" name="nombre">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Dirección:</label>
-                                            <input type="text" class="form-control" id="recipient-name" name="direccion">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Teléfono:</label>
-                                            <input type="text" class="form-control" id="recipient-name" name="telefono">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="recipient-name" class="col-form-label">Correo:</label>
-                                            <input type="text" class="form-control" id="recipient-name" name="correo">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary" name="pagar">Pagar</button>
-                                    </form>
-                                    <?php
-                                    if (isset($_POST['pagar']))
-                                    ?>
+                                    <?php include 'envio.php'; ?>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -119,14 +106,14 @@
                 </section>
             </div>
         <?php
-    } else {
+        } else {
         ?>
             <div class="row text-center">
                 <h3>Debes iniciar sesión para ver tu carrito</h3>
                 <a href="login.php" class="btn btn-primary">Iniciar Sesión</a>
             </div>
         <?php
-    }
+        }
         ?>
     </div>
 </body>
