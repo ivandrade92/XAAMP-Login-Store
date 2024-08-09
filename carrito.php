@@ -30,7 +30,6 @@
                     $result = mysqli_query($connection, $cart);
                     $total = 0.00;
                     $quantity = 0;
-                    $_SESSION['quantity'] = 0;
                     if (mysqli_num_rows($result) > 0) {
                     ?>
                     <table class="table">
@@ -50,7 +49,6 @@
                                 $_total = 0;
                                 $_total += $row['precio'] * $row['cantidad'];
                                 $quantity += $row['cantidad'];
-                                $_SESSION['quantity'] += $row['cantidad'];
                             ?>
                             <tr>
                                 <td><?php echo $row['idcliente']; ?></td>

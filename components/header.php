@@ -1,6 +1,9 @@
  <link rel="stylesheet" href="estilos/style.css" />
  <?php
-  session_start();
+   session_start();
+  include 'config/conexion.php';
+  $result=[];
+  $cart = [];
   ?>
  <nav class="navbar menu">
    <div class="container-fluid">
@@ -18,7 +21,14 @@
           }
           ?>
          <a class="btn btn-primary btn-sm" href="productos.php">Tienda</a>
-         <a class="btn btn-primary btn-sm" href="carrito.php">Carrito<span class="badge text-bg-secondary"></span></a>
+         <a class="btn btn-primary btn-sm" href="carrito.php"> Carrito <?php if (isset($_SESSION['nombre'])) {
+          $cart = "SELECT * FROM carrito WHERE idcliente = $_SESSION[id]";
+          $result = mysqli_query($connection, $cart);
+          $_quantity = 0;
+          while ($row = mysqli_fetch_array($result)){
+            $_quantity += $row['cantidad'];
+          }        
+          ?><span class="badge text-bg-secondary"><?php echo $_quantity; ?></span><?php } ?></a>
        </div>
        <button class="navbar-toggler btn-sm mx-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
          <span class="">
