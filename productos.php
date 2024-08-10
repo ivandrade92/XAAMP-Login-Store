@@ -48,7 +48,7 @@ include 'config/conexion.php';
                                     <input type="hidden" name="idproducto" value="<?php echo $row['idproducto']; ?>" />
                                     <input type="hidden" name="nombreproducto" value="<?php echo $row['nombreproducto']; ?>" />
                                     <input type="hidden" name="precio" value="<?php echo $row['precio']; ?>" />
-                                    <input type="number" name="cantidad" value="1" style="margin: 5px" min="0" max="<?php echo $row['existencias']; ?>" required/>
+                                    <input type="number" name="cantidad" value="1" style="margin: 5px" min="0" max="<?php echo $row['existencias']; ?>" required />
                                     <input class="btn btn-primary" type="submit" name="agregar" value="Agregar al carrito" />
                                 </form>
                             </div>
@@ -73,8 +73,12 @@ include 'config/conexion.php';
                                     <input type="hidden" name="idproducto" value="<?php echo $row['idproducto']; ?>" />
                                     <input type="hidden" name="nombreproducto" value="<?php echo $row['nombreproducto']; ?>" />
                                     <input type="hidden" name="precio" value="<?php echo $row['precio']; ?>" />
-                                    <input type="number" name="cantidad" value="1" style="margin: 10px;" min="0" max="<?php echo $row['existencias']; ?>" required/>
+                                    <input type="number" name="cantidad" value="1" style="margin: 10px;" min="0" max="<?php echo $row['existencias']; ?>" required />
+                                   <?php if(isset($_SESSION['id'])){ ?>
                                     <input class="btn btn-primary" type="submit" name="agregar" value="Agregar al carrito" />
+                                    <?php }else{ ?>
+                                    <a href="login.php" class="btn btn-primary">Inicia sesión para comprar</a>
+                                    <?php } ?>
                                 </form>
                             </div>
                         </div>
